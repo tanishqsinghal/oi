@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>OI</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+
+<body>
+	<div id="chartContainer" style="float: right; height: 300px; width: 50%;"></div>
+	<script>
+	oiData = {};
+		showTable();
+		function showTable(){
+		  fetch("./data.json")
+			.then(response => response.json())
+			.then(data => {
+				oiData = data;
+				createTable(data);
+			})
+			.catch(error => {
+        oiData = {"date": "2023-03-18", "data": [{"current_time": "10:52", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -200814, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -300814, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -220814, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -300814, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": 0, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": 250814, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:33", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:34", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:35", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:35", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:35", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:35", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:35", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}, {"current_time": "11:35", "total_oi_call": 1213092, "total_oi_put": 962278, "total_volume_call": 33010378, "total_volume_put": 33754607, "oi_difference": -250814, "pcr": 0.79}]}
+        createTable(oiData);
+    });
+
+		}
+
+		function createTable(data) {
+		var table = "<table id='dataTable' border=1 style='float: left; width: 50%;'>";
+		table += `<tr>
+					<th>Time</th>
+					<th>Call</th>
+					<th>Put</th>
+					<th>Difference</th>
+					<th>PCR</th>
+				  </tr>`;
+
+		var tr = "";
+		for(let i = 0; i < data.data.length; i++) {
+		  tr += "<tr>";
+		  tr += `<td>${data.data[i].current_time}</td>`;
+		  tr += `<td>${data.data[i].total_oi_call}</td>`;
+		  tr += `<td>${data.data[i].total_oi_put}</td>`;
+		  tr += `<td>${data.data[i].oi_difference}</td>`;
+		  tr += `<td>${data.data[i].pcr}</td>`;
+		  tr += "</tr>"
+		}
+		table += tr + "</table>";
+
+		  // append table to body
+		  document.body.innerHTML += table;
+		}
+
+
+
+		window.onload = function () {
+chartDataPoints = [];
+for(let i = 0; i < oiData.data.length; i++) {
+		chartDataPoints.push({
+					label: oiData.data[i].current_time,
+					y: oiData.data[i].oi_difference
+				});
+		}
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Banknifty"
+	},
+	data: [{
+		type: "line",
+      	indexLabelFontSize: 16,
+		dataPoints: chartDataPoints
+	}]
+});
+chart.render();
+
+}
+	</script>
+</body>
+
+</html>
