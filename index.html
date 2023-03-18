@@ -79,7 +79,7 @@
 		  tr += `<td>${data.data[i].total_oi_call}</td>`;
 		  tr += `<td>${data.data[i].total_oi_put}</td>`;
 		  tr += `<td>${data.data[i].oi_difference}</td>`;
-		  var color = data.data[i].pcr < 0 ? "#FD8A8A" : "#DFF5CE";
+		  var color = data.data[i].pcr < 1 ? "#FD8A8A" : "#DFF5CE";
 		  tr += `<td bgcolor = ${color}>${data.data[i].pcr}</td>`;
 		  tr += "</tr>"
 		}
